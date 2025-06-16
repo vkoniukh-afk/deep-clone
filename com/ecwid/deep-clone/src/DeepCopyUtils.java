@@ -17,21 +17,6 @@ import java.util.TreeMap;
 
 public class DeepCopyUtils {
 
-    public static void main(String[] args) {
-        List<String> favoriteBooks = List.of("B1", "B2", "B3");
-        Man andrey = new Man("Andrey", 25, favoriteBooks);
-
-        Man newAndrey = deepCopy(andrey);
-        System.out.println(andrey);
-        System.out.println(newAndrey);
-
-        System.out.println();
-        System.out.println("Is it new Andrey? " + (newAndrey != andrey));
-        System.out.println("They are equals? " + (newAndrey.equals(andrey)));
-        System.out.println(newAndrey.getFavoriteBooks() != andrey.getFavoriteBooks());
-
-    }
-
     public static <T> T deepCopy(T original) {
         if (original == null) {
             return null;
@@ -181,7 +166,7 @@ public class DeepCopyUtils {
         return fields;
     }
 
-    private static boolean isImmutable(Class<?> clazz) {
+    public static boolean isImmutable(Class<?> clazz) {
         return clazz.isPrimitive() ||
                 clazz == String.class ||
                 clazz == Integer.class ||
